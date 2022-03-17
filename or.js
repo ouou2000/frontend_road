@@ -22,4 +22,5 @@ grade.then(value => {
     console.error(reason);
 })
 
-let s='';
+let o='qwer';
+o.split();
