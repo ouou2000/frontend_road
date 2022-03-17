@@ -1,0 +1,10 @@
+hr {color:sienna;}
+p {margin-left:20px;}
+body {background-image:url("pangbao.png");}
+/* 设置背景图片 */
+.mi{
+    text-align: center;
+    background-color:aqua;
+    /* 将背景颜色的值限制在内容区 */
+    background-clip: content-box;
+}

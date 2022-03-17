@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- crossorigin="anonymous"表示匿名发送请求 -->
+    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>jQuery_Ajax</title>
+</head>
+<body>
+    <h1>jQuery发送Ajax</h1>
+    <button>GET</button>
+    <button>POST</button>
+    <button>通用型方法发送Ajax</button>
+</body>
+<script>
+    // jQuery语法：下面表示对button这个元素，选择按照创建顺序第一个创建的button绑定鼠标点击事件
+    $('button').eq(0).click(function(){
+        // 在jQuery中$是一个对象
+        $.get('http://127.0.0.1:8000/express','a=100&b=200',function(data){
+            console.log(data.age)
+        },'json')
+    })
+    $('button').eq(1).click(function(){
+        $.post('http://127.0.0.1:8000/express','a=100&b=200',function(data){
+            console.log(data.name)
+        },'json')
+    })
+    $('button').eq(1).click(function(){
+        //通用型方法ajax（）函数中参数传递的是一个对象
+        $.ajax({
+            //url
+            url:'http://127.0.0.1:8000/express',
+            //传递的参数
+            data:{a:100,b:200},
+            // 请求类型
+            type:'post',
+            //响应体结果数据类型
+            dataType:JSON,
+            //请求成功的回调函数
+            success:function(data){
+
+            },
+            // 请求超时的时间
+            timeout:2000,
+
+            // 请求失败的回调函数
+            error:function(){
+
+            },
+            // 请求头信息
+            headers:{
+                nane:"xiaoou",
+                age:"22"
+            }
+        })
+    })
+
+</script>
+</html>

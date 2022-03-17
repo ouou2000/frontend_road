@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>原生Ajax</title>
+</head>
+<style>
+  .new {
+    border-width: 3px;
+    border-color: green;
+    width: 130px;
+    height: 100px;
+    border-style: solid;
+  }
+</style>
+
+<body>
+  <button id="btn1">
+    进行请求
+  </button>
+  <button id="btn2">
+    取消请求
+  </button>
+  
+  <div class="new" id="box"></div>
+</body>
+<script>
+  const btn1 = document.getElementById("btn1");
+  const btn2 = document.getElementById("btn2");
+  const result = document.getElementById("box");
+  // 创建请求对象
+  let xhr=null;
+  // 设置发送状态，是否正在发送Ajax请求
+  let sendStatue=false;
+  btn1.onclick = function () {
+    if(sendStatue) xhr.abort();
+    xhr = new XMLHttpRequest();
+    // 此时正在发送Ajax请求
+    sendStatue=true;
+    // 通过timeout设置超时响应，如果响应时间超过设定值
+    // 则会取消请求，并执行超时回调函数（如果有）
+    xhr.timeout = 40000;
+    // 超时回调函数，在响应超时时执行
+    xhr.ontimeout = function () {
+      console.log("超时了");
+    }
+    // 网络错误回调函数，在网络错误时调用
+    xhr.onerror = function () {
+      console.log("网络出错了");
+    }
+    // 自动处理服务端返回的JSON格式数据
+    xhr.responseType = "json";
+    //设置请求方法和url，第一个参数设置请求类型get，post等
+    //第二个参数指向请求地址
+    xhr.open('POST', 'http://127.0.0.1:8000/express');
+    // 设置请求头信息
+    // 第一个参数传递请求头的键名
+    // 第二个参数传递请求头的键值
+    xhr.setRequestHeader('content-type', 'application/csp-report');
+    // 也可以填入非定义的值，但是服务端需要有对应的处理函数
+    xhr.setRequestHeader('name', 'ouou')
+    // 发送方法,在post请求中，send中可写入想要传递的参数
+    xhr.send("a=100&b=200");
+    /*
+    事件绑定，处理服务端返回的结果
+    on when 当...时候
+    readystate 是xhr对象中的属性，表示状态
+    有 0，1，2，3，4这几个值，分别表示不同状态
+    4表示响应已经完成，数据传输完成
+    change 改变
+    */
+    xhr.onreadystatechange = function () {
+      //  判断（服务器返回了所有的结果）
+      if (xhr.readyState === 4) {
+        // 设置请求发送状态为完成
+        sendStatue=false;
+        // 判断响应状态码 200 404 403 401 500
+        // 2xx 表示成功
+        if (xhr.status >= 200 && xhr.status < 300) {
+          // 手动处理服务端返回的JSON格式的字符串
+          //let recive = JSON.parse(xhr.response);
+          result.innerHTML = xhr.response.age;
+        }
+      }
+    }
+  }
+  btn2.onclick=function(){
+    // 取消Ajax请求，在响应没有完成前
+    // 但是这样后台仍会对请求进行一遍处理
+    xhr.abort();
+  }
+</script>
+
+</html>

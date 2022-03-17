@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        width: 1000px;
+        margin: 50px auto;
+    }
+    .new{
+        height: 35px;
+
+        float: left;
+        padding-top: 15px;
+        padding-left: 30px;
+        padding-right: 20px;
+        background-color: darkgrey;
+    }
+    .new:hover{
+        background-color: black;
+    }
+    a{
+        text-decoration: none;
+        color:white;
+    }
+    .text{
+        width: 200px;
+        height: 200px;
+        background-color: aquamarine;
+        position:absolute;
+        
+        
+    }
+</style>
+<body><div class="box">
+    <div class="new">
+        <a href="#">HTML/CSS</a>
+    </div>
+    <div class="new">
+        <a href="javascript:;">BrowserSide</a>
+    </div>
+    <div class="new">
+        <a href="javascript:;">SerVerSide</a>
+    </div>
+    <div class="new">
+        <a href="javascript:;">Programming</a>
+    </div>
+    <div class="new">
+        <a href="javascript:;">XML</a>
+    </div>
+    <div class="new">
+        <a href="javascript:;">Web&nbspBuikling</a>
+    </div>
+    <div class="new">
+        <a href="javascript:;">Referrnce</a>
+    </div>
+</div>
+    <div class="text" id="aa" >
+
+    </div>
+  
+</body>
+<script>
+    var te=document.getElementById("aa");
+    te.onwheel=function(event)
+    {
+        if(event.wheelDelta>0)
+        {
+            this.style.height=this.clientHeight+10+"px";
+        }else{
+            this.style.height=this.clientHeight-10+"px";
+        }
+        return false;
+    }
+    document.onkeydown=function(event)
+    {
+        if(event.key=="ArrowRight")
+        {
+            te.style.left=te.offsetLeft+10+"px";
+        }
+        if(event.key=="ArrowLeft")
+        {
+            te.style.left=te.offsetLeft-10+"px";
+        }
+        if(event.key=="ArrowUp")
+        {
+            
+            te.style.top=te.offsetTop-10+"px";
+        }
+        if(event.key=="ArrowDown")
+        {
+            te.style.top=te.offsetTop+10+"px";
+        }
+        return false;
+    }
+    console.log(navigator.userAgent)
+</script>
+</html>

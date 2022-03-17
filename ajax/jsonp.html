@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <title>原生jsonp与jquery的jsonp</title>
+</head>
+<body>
+    用户名:<input type="text" id="username">
+    <p></p>
+    <button id="btn1">jquery-jsonp</button>
+    <div id="box"> 
+
+    </div>
+</body>
+<script>
+    // 原生jsonp解决跨域问题
+    let input=document.querySelector("input");
+    let p=document.querySelector("p");
+    function handle(data)
+    {
+        p.innerHTML=data.msg;
+    }
+    input.onblur=function(){
+        const script=document.createElement('script');
+        script.src='http://127.0.0.1:8000/jsonp';
+        document.body.appendChild(script);
+    }
+    //jQuery使用jsonp解决跨域问题
+    $("button").eq(0).click(function(){
+        // 第一个参数为url，url后边必须加？callback=？这是固定写法
+        // 第二个参数为回调函数
+        // 通过jQuery可以使jsonp直接返回数据，而不是js代码
+        $.getJSON("http://127.0.0.1:8000/jQuery-jsonp?callback=?",data=>{
+            console.log(data);
+        })
+    })
+</script>
+</html>
