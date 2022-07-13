@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>控制字体大小</title>
+  </head>
+  <style>
+    .container {
+      text-align: center;
+    }
+    .btnbox {
+      margin-top: 50px;
+      text-align: center;
+    }
+    .small {
+      font-size: smaller;
+    }
+    .middle {
+      font-size: medium;
+    }
+    .big {
+      font-size: larger;
+    }
+  </style>
+  <body>
+    <div class="container" id="box">
+      <h1>绝句</h1>
+      <h2>杜甫</h2>
+      <p>两个黄鹂鸣翠柳，一行白鹭上青天。</p>
+      <p>窗含西岭千秋雪，门泊东吴万里船。</p>
+    </div>
+    <div class="btnbox">
+      <button id="small">小</button>
+      <button id="medium">中</button>
+      <button id="big">大</button>
+    </div>
+  </body>
+  <script>
+    const box = document.getElementById("box");
+    const btnSmall = document.getElementById("small");
+    const btnMedium = document.getElementById("medium");
+    const btnBig = document.getElementById("big");
+    btnSmall.onclick = function () {
+      box.className = "container small";
+    };
+    btnMedium.onclick = function () {
+      box.className = "container medium";
+    };
+    btnBig.onclick = function () {
+      box.className = "container big";
+    };
+  </script>
+</html>

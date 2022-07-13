@@ -21,9 +21,42 @@
         margin: 0 auto;
     }
 
+    .box3 {
+        width: 250px;
+        height: 300px;
+        background-color: white;
+        border: 1px solid rgb(227, 228, 229);
+        display: none;
+        position: absolute;
+        top: 30px;
+        box-shadow: 0px 2px 2px rgb(227, 228, 229);
+
+    }
+
+    .box3:hover {
+        display: block;
+    }
+
     .location {
-        width: 300px;
         float: left;
+    }
+
+    .map {
+        width: 52px;
+        padding-left: 10px;
+        border-top: 1px solid rgb(227, 228, 229);
+        border-left: 1px solid rgb(227, 228, 229);
+        border-right: 1px solid rgb(227, 228, 229);
+        position: relative;
+        z-index: 999;
+    }
+
+    .location:hover .map {
+        background-color: white;
+    }
+
+    .location:hover .box3 {
+        display: block;
     }
 
     a {
@@ -32,16 +65,21 @@
         color: rgb(153, 153, 153);
         font-size: small;
     }
-
+    span{
+        line-height: 30px;
+        color: rgb(153, 153, 153);
+        font-size: small;
+    }
     .red {
         color: red;
     }
-    i{
+
+    i {
         color: rgb(153, 153, 153);
         font-size: 1px;
-
         text-decoration: none;
     }
+
     .line {
         width: 1px;
         height: 10px;
@@ -57,7 +95,7 @@
     li {
         float: left;
     }
-    
+
     .box2::before,
     .box2::after {
         content: '';
@@ -70,9 +108,15 @@
     <div class="box1">
         <div class="box2">
             <div class="location">
-                <i class="fas fa-map-marker-alt red" ></i>
-                <a href="javascript">广东</a>
+                <div class="map">
+                    <i class="fas fa-map-marker-alt red"></i>
+                    <a href="javascript">广东</a>
+                </div>
+                <div class="box3">
+
+                </div>
             </div>
+
             <ul>
                 <li>
                     <a href="javascript">你好，请登录</a>
@@ -95,23 +139,24 @@
                     <i class="fas fa-angle-down"></i>
                 <li class="line"></li>
                 </li>
-                <li><a href="javascript">客户服务</a>
+                <li><span>客户服务</span>
                     <i class="fas fa-angle-down"></i>
                 <li class="line"></li>
                 </li>
-                <li><a href="javascript">网站导航</a>
+                <li><span>网站导航</span>
                     <i class="fas fa-angle-down"></i>
                 <li class="line"></li>
                 </li>
-                <li><a href="javascript">手机京东</a>
+                <li><span>手机京东</span>
                 <li class="line"></li>
                 </li>
                 <li><a href="javascript">网站无障碍</a></li>
+                
             </ul>
 
         </div>
     </div>
-    <img src="./京东顶部栏.png" alt="" width="1100px">
+
 </body>
 
 </html>

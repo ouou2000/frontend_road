@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>axios</title>
+</head>
+<style>
+    div{
+        background-image:radial-gradient()
+    }
+</style>
+<body>
+    <button id="btn1">GET</button>
+    <button id="btn2">POST</button>
+    <button id="btn3">axios</button>
+    <button id="btn4">fetch</button>
+</body>
+<script>
+    window.onload = function () {
+        const btn1 = document.getElementById("btn1");
+        const btn2 = document.getElementById("btn2");
+        const btn3 = document.getElementById("btn3");
+        const btn4 = document.getElementById("btn4");
+        axios.defaults.baseURL = 'http://localhost:3000';
+        btn1.onclick = () => {
+            axios.get('/express', {
+                // url
+                params: {
+                    id: 123,
+                    vip: 9
+                },
+                // 请求头
+                headers: {
+                    name: "xiaoou",
+                    age: "22"
+                }
+            })
+        }
+        btn2.onclick = () => {
+            axios.post('/express', {
+                name: "小欧",
+                gender: "男"
+            }, {
+                // url
+                params: {
+                    id: 123,
+                    vip: 9
+                },
+                // 请求头
+                headers: {
+                    name: "xiaoou",
+                    age: "22"
+                }
+            }).then(respnse => {//处理返回结果
+                console.log(respnse);
+            })
+        }
+        btn3.onclick = function() {
+            // 使用axios函数进行Ajax请求
+            axios({
+                method: 'POST',
+                url: "/posts",
+                // url参数
+                // 请求体
+                data: {
+                    title: "论新中国的成立",
+                    author: "小欧"
+                }
+            }).then(response => {//回调函数
+                console.log(response);
+            })
+        }
+        btn4.onclick = function() {
+            // 使用fetch函数进行Ajax请求
+            fetch("http://127.0.0.1:8000/express",{
+                // 请求方法
+                method:"post",
+                // 请求头参数
+                headers:{
+                    name:"xiaoou"
+                },
+                // 请求体参数
+                body:"a=100"
+            }).then(response=>{
+                return response.json();
+            }).then(response=>{
+                console.log(response);
+            })
+        }
+    }
+</script>
+
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <!-- 对IE开启的一个配置项，表示开启最高级别渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- 配置页签图标，<%= BASE_URL %>指的是当前文件目录，Vue脚手架底层做了封装，防止用./或../在项目上线时报错 -->
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <!-- 会自动找到package.json中的name配置项，作为标题 -->
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <!-- 当浏览器不支持JS时，会渲染该标签 -->
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <!-- 容器 -->
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

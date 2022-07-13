@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- 实现一个模糊查找的功能 -->
+
+<body>
+    <div id="box">
+        <input type="text" v-model:value='keyWord'>
+        <ul>
+            <li v-for="(p, index) in filterPeople" :key="index">
+                {{p.name}}-{{p.age}}-{{p.sex}}
+            </li>
+        </ul>
+    </div>
+
+    <script type='text/javascript' src='../vue源码/vue.js'></script>
+    <script type='text/javascript'>
+        Vue.config.productionTip = false //设置为 false 以阻止 vue 在启动时生成生产提示。
+        const vm = new Vue({
+            el: '#box',
+            data: {
+                keyWord: '',
+                fullPeople: [
+                    { name: '马冬梅', age: '22', sex: '女' },
+                    { name: '周冬雨', age: '35', sex: '女' },
+                    { name: '周杰伦', age: '39', sex: '男' },
+                    { name: '张杰杰', age: '12', sex: '男' }
+                ],
+                // filterPeople: []//只有在使用监视属性时才需要这个变量
+            },
+            // 使用计算属性实现，更方便
+            computed: {
+                filterPeople() {
+                    const temp=this.fullPeople.filter(p => {
+                        return p.name.indexOf(this.keyWord) !== -1
+                    })
+                    // 搜索加按照年龄进行排序
+                    return temp.sort((a,b)=>{
+                        return a.age-b.age
+                    })
+                }
+            },
+             // 使用监视属性实现
+            // watch: {
+            //     keyWord: {
+            //         immediate: true,
+            //         handler(val) {
+            //             this.filterPeople = this.fullPeople.filter(p => {
+            //                 return p.name.indexOf(val) !== -1
+            //             })
+            //         }
+            //     }
+            // }
+
+
+
+        })
+    </script>
+</body>
+
+</html>

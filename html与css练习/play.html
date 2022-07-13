@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    body {
+      /* 设置背景图片 */
+      background-image: url(./one.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .content {
+      /* 设置外部容器 */
+      width: auto;
+      height: 700px;
+    }
+    .topBox {
+      /* 设置顶部容器 */
+      display: flex;
+    }
+
+    .top {
+      /* 设置顶部抽奖格 */
+      width: 157px;
+      height: 133px;
+      background-color: red;
+      /* display: flex; */
+      border-radius: 10px;
+      margin-left: 10px;
+    }
+
+    .middle {
+      /* 设置中间容器 */
+      height: 440px;
+      display: flex;
+    }
+
+    .left {
+      /* 中间容器中的抽奖格容器 */
+      width: 167px;
+      height: 440px;
+      margin-left: 10px;
+    }
+
+    .mid {
+      /* 中间容器中的抽奖格 */
+      width: 157px;
+      height: 133px;
+      background-color: red;
+      /* display: flex; */
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .bosom {
+      /* 题目显示框加答题框加按钮容器 */
+      width: 1160px;
+      height: 440px;
+    }
+    .tip {
+      /* 题目显示框样式 */
+      width: 1100px;
+      height: 350px;
+      background-color: white;
+      border-radius: 10px;
+      margin: 10px auto;
+    }
+
+    .button {
+      width: 1100px;
+      height: 50px;
+    }
+    .btn {
+      /* 按钮样式 */
+      float: right;
+      margin-right: 10px;
+      border-radius: 3px;
+      background-color: aqua;
+    }
+    .right {
+      width: 167px;
+      height: 440px;
+      margin-left: 10px;
+    }
+    .buttomBox {
+      /* margin-top: 0px; */
+      display: flex;
+    }
+    .buttom {
+      width: 157px;
+      height: 133px;
+      background-color: red;
+      /* display: flex; */
+      border-radius: 10px;
+      margin-left: 10px;
+    }
+    /* 设置跑动时的颜色，需要同时更改change，change1 */
+    .change {
+      background-color: rgb(237, 225, 4);
+      width: 157px;
+      height: 133px;
+
+      /* display: flex; */
+      border-radius: 10px;
+      margin-left: 10px;
+    }
+    .change1 {
+      background-color: rgb(237, 225, 4);
+      width: 157px;
+      height: 133px;
+      /* display: flex; */
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+    .welcome {
+      height: 200px;
+      width: 100%;
+      text-align: center;
+      font-size: 30px;
+      color: red;
+    }
+    .welcome > h1 {
+      padding-top: 100px;
+    }
+    .welcome > p {
+      color: black;
+    }
+    .hide {
+      display: none;
+    }
+    #title1 {
+      padding-top: 10px;
+      padding-left: 10px;
+    }
+    .choice {
+      margin-top: 20px;
+      margin-left: 40px;
+    }
+    .result {
+      width: 100%;
+      height: 100%;
+      padding-top: 50px;
+      font-size: 20px;
+    }
+  </style>
+
+  <body>
+    <div class="content">
+      <div class="topBox">
+        <!-- 抽奖格 -->
+        <div class="top"></div>
+        <div class="top"></div>
+        <div class="top"></div>
+        <div class="top"></div>
+        <div class="top"></div>
+        <div class="top"></div>
+        <div class="top"></div>
+        <div class="top"></div>
+        <div class="top"></div>
+      </div>
+      <div class="middle">
+        <div class="left">
+          <!-- 抽奖格 -->
+          <div class="mid"></div>
+          <div class="mid"></div>
+          <div class="mid"></div>
+        </div>
+        <div class="bosom">
+          <!-- 题目作答 -->
+          <div class="tip" id="subject">
+            <div class="welcome" id="welcome">
+              <h1>党建红色长廊知识竞答</h1>
+              <p>每次5题，按回车键开始答题</p>
+            </div>
+            <div class="title hide" id="title">
+              <h1 id="title1">题目</h1>
+              <input type="radio" class="choice" /><span
+                class="choiceText"
+              ></span
+              ><br />
+              <input type="radio" class="choice" /><span
+                class="choiceText"
+              ></span
+              ><br />
+              <input type="radio" class="choice" /><span
+                class="choiceText"
+              ></span
+              ><br />
+              <input type="radio" class="choice" /><span
+                class="choiceText"
+              ></span>
+            </div>
+            <div class="result hide">
+              <span>你的得分是:</span><span id="result"></span>
+            </div>
+          </div>
+        </div>
+        <div class="right">
+          <!-- 抽奖格 -->
+          <div class="mid"></div>
+          <div class="mid"></div>
+          <div class="mid"></div>
+        </div>
+      </div>
+      <div class="buttomBox">
+        <!-- 抽奖格 -->
+        <div class="buttom"></div>
+        <div class="buttom"></div>
+        <div class="buttom"></div>
+        <div class="buttom"></div>
+        <div class="buttom"></div>
+        <div class="buttom"></div>
+        <div class="buttom"></div>
+        <div class="buttom"></div>
+        <div class="buttom"></div>
+      </div>
+    </div>
+  </body>
+  <script>
+    // 获取顶部抽奖框
+    let box1 = document.getElementsByClassName("top");
+    // 获取中部抽奖框
+    let box2 = document.getElementsByClassName("mid");
+    // 获取底部抽奖框
+    let box3 = document.getElementsByClassName("buttom");
+    // 获取题目显示框
+    let sub = document.getElementById("subject");
+    // 获取获取题目按钮
+    let btn = document.getElementById("gain");
+    // 获取选择框
+    const choice = document.getElementsByClassName("choice");
+    // 答案
+    const choiceText = document.getElementsByClassName("choiceText");
+    // 获取欢迎盒子
+    const welcome = document.getElementById("welcome");
+    // 获取题目盒子
+    const title = document.getElementById("title");
+    const title1 = document.getElementById("title1");
+    const result = document.getElementById("result");
+    const result1 = document.getElementsByClassName("result");
+    // 定时器标识符
+    let number = 0;
+    // 用于循环跑马灯
+    let n = 0;
+    // 标识是否正在获取题目
+    let flag = true;
+    // 标识是否可以提交答案
+    let isPut = false;
+    // 标识是否重复提交答案
+    let repart = false;
+    // 存储抽奖格，以便让跑马灯按预定方向转动
+    const box = [];
+    // 标记答题数量
+    let answer = 0;
+    let sum = 0;
+    // 对抽奖格位置进行重排
+    for (let i = 0; i <= box1.length; i++) {
+      box[i] = box1[i];
+    }
+    box[9] = box2[3];
+    box[10] = box2[4];
+    box[11] = box2[5];
+    for (let i = 8; i >= 0; i--) {
+      box[20 - i] = box3[i];
+    }
+    box[21] = box2[2];
+    box[22] = box2[1];
+    box[23] = box2[0];
+    // 跑马灯函数
+    const turn = function () {
+      let num = 250;
+      // 开始定时器，启动跑马灯
+      number = setInterval(() => {
+        if (n != 0) {
+          if ((n >= 10 && n <= 12) || (n >= 22 && n <= 24)) {
+            box[n - 1].className = "mid";
+          } else {
+            box[n - 1].className = "buttom";
+          }
+        }
+        if (n === 24) {
+          n = 0;
+        }
+        if ((n >= 9 && n <= 11) || (n >= 21 && n <= 23)) {
+          box[n++].className = "change1";
+        } else {
+          box[n++].className = "change";
+        }
+      }, num);
+    };
+    // 开启跑马灯
+    turn();
+    // 题目
+    const subject = [
+      "标志着中国新民主主义革命开端的历史事件是",
+      "五四运动对中国共产党建立的意义在于",
+      "1919年5月，中国最早的马克思主义者（）在《新青年》发表《我的马克思主义观》，系统地介绍了马克思主义。",
+      "中国共产党成立的具体时间是",
+    ];
+    // 答案
+    const answer1 = [
+      "A、新文化运动",
+      "A、标志着中国现代化史的开端",
+      "A、陈独秀",
+      "A、1921年6月1号",
+    ];
+    const answer2 = [
+      "B、五四运动",
+      "B、促进了马克思主义和中国工人运动的结合",
+      "B、李大钊",
+      "B、1921年7月1号",
+    ];
+    const answer3 = [
+      "C、中国共产党成立",
+      "C、标志着中国共产党的创建",
+      "C、毛泽东",
+      "C、1921年7月21号",
+    ];
+    const answer4 = [
+      "D、五卅运动",
+      "D、具备历史的理由",
+      "D、邓中夏",
+      "D、1921年7月23号",
+    ];
+
+    choice[0].onclick = function () {
+      if (answer === 0) {
+        sum += 20;
+      }
+      if (answer === 4) {
+        title.className = "title hide";
+        result.innerText = sum;
+        result1[0].className = "result";
+        return;
+      }
+      title1.innerText = subject[answer];
+      choiceText[0].innerHTML = answer1[answer];
+      choiceText[1].innerHTML = answer2[answer];
+      choiceText[2].innerHTML = answer3[answer];
+      choiceText[3].innerHTML = answer4[answer];
+      answer++;
+      this.checked = false;
+    };
+    choice[1].onclick = function () {
+      if (answer === 1 || answer === 2 || answer === 3) {
+        sum += 20;
+      }
+      if (answer === 4) {
+        title.className = "title hide";
+        result1[0].className = "result";
+        result.innerText = sum;
+        return;
+      }
+      title1.innerText = subject[answer];
+      choiceText[0].innerHTML = answer1[answer];
+      choiceText[1].innerHTML = answer2[answer];
+      choiceText[2].innerHTML = answer3[answer];
+      choiceText[3].innerHTML = answer4[answer];
+      answer++;
+      this.checked = false;
+    };
+    choice[2].onclick = function () {
+      if (answer === 4) {
+        title.className = "title hide";
+        result1[0].className = "result";
+        result.innerText = sum;
+        return;
+      }
+      title1.innerText = subject[answer];
+      choiceText[0].innerHTML = answer1[answer];
+      choiceText[1].innerHTML = answer2[answer];
+      choiceText[2].innerHTML = answer3[answer];
+      choiceText[3].innerHTML = answer4[answer];
+      answer++;
+      this.checked = false;
+    };
+    choice[3].onclick = function () {
+      if (answer === 4) {
+        sum += 20;
+        title.className = "title hide";
+        result1[0].className = "result";
+        result.innerText = sum;
+        return;
+      }
+      title1.innerText = subject[answer];
+      choiceText[0].innerHTML = answer1[answer];
+      choiceText[1].innerHTML = answer2[answer];
+      choiceText[2].innerHTML = answer3[answer];
+      choiceText[3].innerHTML = answer4[answer];
+      answer++;
+      this.checked = false;
+    };
+
+    document.onkeydown = function (event) {
+      if (event.key === "Enter") {
+        welcome.className = "welcome hide";
+        title.className = "title";
+        result1[0].className = "result hide";
+        title1.innerText = "1945年10月1号是什么日子";
+        choiceText[0].innerHTML = "新中国成立";
+        choiceText[1].innerHTML = "第一届政治协商会议";
+        choiceText[2].innerHTML = "井冈山革命根据地成立";
+        choiceText[3].innerHTML = "打响武装革命第一枪";
+      }
+    };
+  </script>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../fontweb/css/all.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script defer  src='../js/login.js'></script>
+    <title>登录</title>
+</head>
+
+<body>
+    <div class="log">
+        <div class="tip">
+            <div class="title">
+                员工职效管理系统
+            </div>
+            <div class="way">
+                <i>账号密码登录</i>
+                <i>———————</i>
+            </div>
+        </div>
+        <div class="userMsg">
+
+            <span class="font">
+            <i class="fas fa-user-alt"></i>
+            </span>
+            <input placeholder="请输入您的账号" type="text" class='input'><br>
+            
+            <span class="font1">
+            <i class="fas fa-lock"></i>
+            </span>
+            <input placeholder="请输入您的密码" type="password" class='input'><br>
+            <input type="checkbox" id="check1" name="1" value="1">
+            <label for="check1" style="color: white;">自动登陆</label>
+            <a href="javascript:;" id="forget">忘记密码？</a>
+            <button type="submit" class='button' id="login">登录</button>
+            <a href="javascript:;" id="register">注册账号</a>
+        </div>
+
+    </div>
+    
+</body>
+
+</html>

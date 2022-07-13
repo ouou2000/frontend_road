@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>hello_react</title>
+</head>
+<style>
+    .title{
+        background-color: skyblue;
+    }
+</style>
+
+<body>
+    <div id="test"></div>
+
+    <script type="text/javascript" src="../reactapi/react.development.js"></script>
+    <script type="text/javascript" src="../reactapi/react-dom.development.js"></script>
+    <script type='text/javascript' src='../reactapi/babel.min.js'></script>
+    <script type="text/babel">
+        const test1=["Node",'Ajax',"VUE"]
+        class native extends React.Component{
+            state={
+                newList:[]
+            }
+            componentDidMount(){
+                setTimeout(()=>{
+
+                },1000)
+            }
+            render(){
+                return
+                    (
+                        <div className="list">
+                            <div className="news" >新闻1</div>
+                            <div className="news" >新闻2</div> 
+                            <div className="news" >新闻3</div> 
+                            <div className="news" >新闻4</div> 
+                            <div className="news" >新闻5</div> 
+                            <div className="news" >新闻6</div>
+                            <div className="news" >新闻7</div>
+                        </div>
+                    )
+            }
+        }
+        ReactDOM.render(<native/>, document.getElementById('test'))
+        setTimeout(() => {
+            
+        }, timeout);
+
+    </script>
+</body>
+
+</html>

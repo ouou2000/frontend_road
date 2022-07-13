@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hello,vue</title>
+  </head>
+  <style></style>
+  <body>
+    <div id="contain">
+      <!-- 使用组件 -->
+      <app></app>
+    </div>
+    <script type="text/javascript" src="../vue源码/vue.js"></script>
+    <script type="text/javascript">
+      Vue.config.productionTip = false; //设置为 false 以阻止 vue 在启动时生成生产提示。
+      const time = new Date();
+
+      // 创建一个组件
+      const hello = Vue.extend({
+        // 组件中不需要声明el
+        // 非单文件组件中需要使用template声明结构
+        template: `
+        <div class="box">
+          <h1>你好</h1>
+          <h2>{{name}}</h2>
+        </div>
+        `,
+        // data必须写成函数式，返回一个对象
+        data() {
+          return {
+            name: "小欧",
+          };
+        },
+      });
+      const has = Vue.extend({
+        name: "has",
+        template: `
+        <h1>今天学习组件内容</h1>
+        `,
+      });
+      const stuVue = Vue.extend({
+        name: "stuVue",
+        template: `
+        <div>
+          <h1>学习是痛苦的</h1>
+          <p>{{msg}}</p><br>
+          <has></has>
+        </div>
+        `,
+        data() {
+          return {
+            msg: "今天是5月4号",
+          };
+        },
+        components: {
+          has,
+        },
+      });
+      const app = Vue.extend({
+        name: "app",
+        template: `
+        <div>
+          <hello></hello>
+          <stuVue></stuVue>
+        </div>
+        `,
+        components: {
+          hello,
+          stuVue,
+        },
+      });
+      // 全局注册组件，第一个参数为组件名，第二个参数为传入的组件
+      Vue.component("hello", hello);
+      const vm = new Vue({
+        el: "#contain",
+        // 局部注册组件
+        components: {
+          // 此处使用了ES6的简写形式
+          // 原形式是app：app
+          app,
+        },
+      });
+    </script>
+  </body>
+</html>

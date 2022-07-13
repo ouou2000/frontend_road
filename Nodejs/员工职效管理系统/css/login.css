@@ -1,0 +1,101 @@
+html{
+    height: 100%;
+}
+body{
+    background-image: url(../images/background.jpg);
+    background-size: 100% 100%;
+    /* background-position: 0 -150px; */
+    background-repeat: no-repeat;
+    margin:  0px;
+}
+.log{
+    height: 410px;
+    width: 600px;
+    margin: 150px auto;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px black;
+}
+.tip{
+    height: 150px;
+    width: 600px;
+}
+.title{
+    padding: 20px;
+    height: 70px;
+    width: 400px;
+    margin: auto;
+    text-align: center;
+    color: floralwhite;
+    font-weight: 900;
+    font-size:50px;
+}
+.way{
+    margin: auto;
+    width: 120px;
+    text-align: center;
+    font-weight: 900;
+    color: rgb(24,144,253);
+    cursor: pointer;
+}
+.userMsg{
+    width: 600px;
+    height: 250px;
+    position: relative;
+}
+.font{
+    position: absolute;
+    /* z-index: 2; */
+    top: 28px;
+    left: 170px;
+    color: rgb(117,117,117);
+}
+.font1{
+    position: absolute;
+    /* z-index: 2; */
+    top: 102px;
+    left: 171px;
+    color: rgb(117,117,117);
+}
+.input{
+    height: 30px;
+    width: 250px;
+    margin: 20px 160px;
+    border-radius: 10px;
+    border:1px solid lightgray;
+    padding-left: 30px;
+}
+#check1{
+    margin-left: 170px;
+}
+#forget{
+    margin-left: 110px;
+    text-decoration: none;
+    color: rgb(24,144,253);
+}
+#register{
+    margin-left: 367px;
+    text-decoration: none;
+    color: rgb(24,144,253);
+}
+.button{
+    height: 35px;
+    width: 285px;
+    margin: 20px 160px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border:1px solid lightgray;
+    background-color: rgb(24,144,255);
+    color: white;
+    cursor: pointer;
+}
+.button:hover{
+    opacity: 0.8;
+}
+.input:focus{
+    /* border-radius: 10px; */
+    outline:1px solid rgb(48, 199, 226);
+    /* background-color: aqua; */
+}
+.input:hover{
+    border:1px solid rgb(48, 199, 226);
+}

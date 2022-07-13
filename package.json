@@ -1,6 +1,21 @@
 {
   "dependencies": {
     "axios": "^0.26.1",
-    "express": "^4.17.3"
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "experss": "^0.0.1-security",
+    "express": "^4.17.3",
+    "express-jwt": "^6.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "html-webpack-plugin": "^5.5.0",
+    "less": "^4.1.2",
+    "less-loader": "^10.2.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
   }
 }
