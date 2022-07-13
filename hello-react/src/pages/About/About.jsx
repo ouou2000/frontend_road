@@ -5,6 +5,7 @@ export default class About extends Component {
     return (
       <div>
         <h3>我是About的内容</h3>
+        <div>测试一下分支情况</div>
       </div>
     );
   }
